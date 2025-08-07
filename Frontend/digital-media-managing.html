@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="logo.png" />
+    <title>Digital Media Marketing - JAYNEX IT</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style type="text/css">
+        /* Custom styles that can't be easily done with Tailwind */
+        .logo {
+            background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .nav-links a {
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-features li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .result-number {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 leading-relaxed overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-lg z-50 py-4 transition-all duration-300">
+        <nav class="max-w-6xl mx-auto px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html"
+                class="text-3xl font-extrabold bg-gradient-to-br from-blue-800 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+                JAYNEX IT
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <ul class="flex space-x-8 list-none">
+                    <li>
+                        <a href="index.html"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Home
+                        </a>
+                    </li>
+
+                    <!-- Desktop Dropdown -->
+                    <li class="relative group">
+                        <button
+                            class="flex items-center font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Services <span class="ml-1">▾</span>
+                        </button>
+                        <ul
+                            class="absolute hidden group-hover:block left-0 mt-0 w-56 bg-white rounded-xl shadow-xl z-50 py-2">
+                            <li>
+                                <a href="web-development.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Web Development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ui-ux.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    UI/UX Design
+                                </a>
+                            </li>
+                            <li>
+                                <a href="digital-media-managing.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Digital Media Managing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="web-content-writing.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Content Writing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="social-media-management.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Social Media Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="business-development.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Business Development
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="index.html#about"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Desktop CTA Button -->
+                <!-- <a href="index.html#contact"
+                    class="hidden md:inline-block bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    Login
+                </a> -->
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="hamburger" class="md:hidden flex flex-col w-8 h-8 justify-center items-center z-50">
+                <span class="block w-7 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-slate-700 transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileNav"
+            class="fixed top-0 right-0 w-72 h-screen bg-white shadow-2xl z-40 flex flex-col p-6 translate-x-full md:hidden transition-transform duration-300">
+            <div class="mt-20 space-y-6">
+                <a href="index.html"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    Home
+                </a>
+
+                <!-- Mobile Dropdown -->
+                 <div class="mobile-dropdown">
+                    <button
+                        class="mobile-dropdown-btn flex items-center justify-between w-full text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                        Services <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-list hidden flex-col pl-4 mt-2 space-y-3">
+                        <a href="web-development.html"
+                            class="text-base font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 block">
+                            Web Development
+                        </a>
+                        <a href="ui-ux.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            UI/UX Design
+                        </a>
+                        <a href="digital-media-managing.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Digital Media Managing
+                        </a>
+                        <a href="web-content-writing.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Content Writing
+                        </a>
+                        <a href="social-media-management.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Social Media Management
+                        </a>
+                        <a href="business-development.html"
+                            class="text-base font-medium block text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Business Development
+                        </a>
+                    </div>
+                </div>
+
+                <a href="index.html#about"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    About
+                </a>
+                <a href="index.html#contact"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    Contact
+                </a>   <br />
+
+                <!-- Mobile CTA Button -->
+                <a href="index.html#contact"
+                    class="mt-12 w-full bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-full font-semibold text-center hover:shadow-lg transition-all duration-300">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-offset mt-20">
+        <!-- Hero Section -->
+        <section class="hero min-h-[70vh] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex items-center relative overflow-hidden">
+            <div class="hero-content max-w-6xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
+                <div class="hero-text">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-10 leading-tight animate-slideInLeft">Amplify Your Brand with <span class="highlight">Digital Media Marketing</span></h1>
+                    <p class="text-xl text-slate-300 mb-10 animate-slideInLeft animation-delay-200">Transform your social presence into a powerful business asset. We create compelling digital media strategies that engage audiences, build communities, and drive measurable results across all platforms.</p>
+                    <div class="hero-buttons flex flex-col sm:flex-row gap-6">
+                        <a href="#services" class="btn-primary bg-gradient-to-br from-blue-500 to-blue-700 text-white py-4 px-8 rounded-full font-semibold no-underline inline-block transition-all duration-300 hover:-translate-y-1 hover:shadow-xl animate-slideInLeft animation-delay-400">Explore Our Services</a>
+                        <a href="#contact" class="btn-secondary bg-transparent text-white py-4 px-8 border-2 border-slate-500 rounded-full font-semibold no-underline inline-block transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10 animate-slideInLeft animation-delay-400">Start Your Campaign</a>
+                    </div>
+                </div>
+                <div class="hero-visual animate-slideInRight">
+                    <div class="media-showcase grid grid-cols-2 gap-4">
+                        <div class="media-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-center animate-floatCard">
+                            <div class="icon text-3xl mb-2">📱</div>
+                            <h4 class="text-white text-lg font-medium mb-1">Social Media</h4>
+                            <p class="text-slate-300 text-sm">Strategic campaigns</p>
+                        </div>
+                        <div class="media-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-center animate-floatCard animation-delay-500">
+                            <div class="icon text-3xl mb-2">🎬</div>
+                            <h4 class="text-white text-lg font-medium mb-1">Video Content</h4>
+                            <p class="text-slate-300 text-sm">Engaging visuals</p>
+                        </div>
+                        <div class="media-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-center animate-floatCard animation-delay-1000">
+                            <div class="icon text-3xl mb-2">📊</div>
+                            <h4 class="text-white text-lg font-medium mb-1">Analytics</h4>
+                            <p class="text-slate-300 text-sm">Data-driven insights</p>
+                        </div>
+                        <div class="media-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-center animate-floatCard animation-delay-1500">
+                            <div class="icon text-3xl mb-2">🎯</div>
+                            <h4 class="text-white text-lg font-medium mb-1">Targeted Ads</h4>
+                            <p class="text-slate-300 text-sm">Precision marketing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-gradient-to-br from-slate-50 to-slate-100">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="section-title text-center mb-16 animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Our Digital Media Marketing Services</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">Comprehensive digital marketing solutions designed to elevate your brand and connect with your target audience across all digital touchpoints.</p>
+                </div>
+                <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">📱</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Social Media Management</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Complete social media strategy and management across all major platforms.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Content creation and scheduling</li>
+                            <li class="text-slate-600 mb-2">Community management</li>
+                            <li class="text-slate-600 mb-2">Hashtag strategy</li>
+                            <li class="text-slate-600 mb-2">Engagement optimization</li>
+                            <li class="text-slate-600 mb-2">Monthly performance reports</li>
+                        </ul>
+                    </div>
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">🎬</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Content Creation</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">High-quality visual and video content that captures attention and drives engagement.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Professional photography</li>
+                            <li class="text-slate-600 mb-2">Video production and editing</li>
+                            <li class="text-slate-600 mb-2">Graphic design</li>
+                            <li class="text-slate-600 mb-2">Animation and motion graphics</li>
+                            <li class="text-slate-600 mb-2">Brand-consistent visuals</li>
+                        </ul>
+                    </div>
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">🎯</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Paid Advertising</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Strategic paid campaigns that maximize ROI and reach your ideal customers.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Facebook & Instagram Ads</li>
+                            <li class="text-slate-600 mb-2">Google Ads campaigns</li>
+                            <li class="text-slate-600 mb-2">LinkedIn advertising</li>
+                            <li class="text-slate-600 mb-2">YouTube promotions</li>
+                            <li class="text-slate-600 mb-2">A/B testing and optimization</li>
+                        </ul>
+                    </div>
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">📊</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Analytics & Reporting</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Comprehensive tracking and analysis to measure success and optimize performance.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Advanced analytics setup</li>
+                            <li class="text-slate-600 mb-2">Custom dashboard creation</li>
+                            <li class="text-slate-600 mb-2">Monthly performance reports</li>
+                            <li class="text-slate-600 mb-2">ROI tracking</li>
+                            <li class="text-slate-600 mb-2">Strategy recommendations</li>
+                        </ul>
+                    </div>
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">💬</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Influencer Marketing</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Connect with relevant influencers to expand your reach and build authentic relationships.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Influencer identification</li>
+                            <li class="text-slate-600 mb-2">Campaign management</li>
+                            <li class="text-slate-600 mb-2">Content collaboration</li>
+                            <li class="text-slate-600 mb-2">Performance tracking</li>
+                            <li class="text-slate-600 mb-2">Relationship building</li>
+                        </ul>
+                    </div>
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">🔥</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Brand Strategy</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Develop a cohesive brand voice and visual identity across all digital channels.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Brand positioning</li>
+                            <li class="text-slate-600 mb-2">Voice and tone development</li>
+                            <li class="text-slate-600 mb-2">Visual identity guidelines</li>
+                            <li class="text-slate-600 mb-2">Content strategy</li>
+                            <li class="text-slate-600 mb-2">Competitive analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="py-24 bg-white">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="section-title text-center mb-16 animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Our Proven Process</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">We follow a strategic approach to ensure your digital media marketing delivers maximum impact and measurable results.</p>
+                </div>
+                <div class="process-steps grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="step-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">1</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Discovery & Strategy</h4>
+                        <p class="text-slate-600 leading-relaxed">We analyze your brand, audience, and competitors to develop a customized digital media strategy.</p>
+                    </div>
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="step-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">2</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Content Planning</h4>
+                        <p class="text-slate-600 leading-relaxed">Create a comprehensive content calendar with engaging posts, stories, and campaigns.</p>
+                    </div>
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="step-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">3</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Creation & Publishing</h4>
+                        <p class="text-slate-600 leading-relaxed">Produce high-quality content and publish it across all relevant platforms at optimal times.</p>
+                    </div>
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="step-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">4</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Monitor & Optimize</h4>
+                        <p class="text-slate-600 leading-relaxed">Continuously track performance, engage with your audience, and refine strategies for better results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="py-24 bg-gradient-to-br from-slate-800 to-slate-700 text-white">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="section-title text-center mb-16 animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold text-white mb-4">Results That Speak Volumes</h2>
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto">Our data-driven approach delivers measurable results that transform businesses and drive growth.</p>
+                </div>
+                <div class="results-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="result-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center animate-on-scroll">
+                        <span class="result-number text-4xl font-extrabold block mb-2">300%</span>
+                        <span class="result-label text-slate-300 font-semibold">Average Engagement Increase</span>
+                    </div>
+                    <div class="result-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center animate-on-scroll">
+                        <span class="result-number text-4xl font-extrabold block mb-2">150%</span>
+                        <span class="result-label text-slate-300 font-semibold">Follower Growth Rate</span>
+                    </div>
+                    <div class="result-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center animate-on-scroll">
+                        <span class="result-number text-4xl font-extrabold block mb-2">50+</span>
+                        <span class="result-label text-slate-300 font-semibold">Successful Campaigns</span>
+                    </div>
+                    <div class="result-card bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center animate-on-scroll">
+                        <span class="result-number text-4xl font-extrabold block mb-2">95%</span>
+                        <span class="result-label text-slate-300 font-semibold">Client Satisfaction Rate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-gradient-to-br from-slate-50 to-slate-100">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="cta-content max-w-4xl mx-auto text-center animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-6">Ready to Transform Your Digital Presence?</h2>
+                    <p class="text-xl text-slate-600 mb-8">Let's create a digital media marketing strategy that elevates your brand, engages your audience, and drives real business results. Your success story starts here.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-6">
+                        <a href="index.html#contact" class="btn-primary bg-gradient-to-br from-blue-500 to-blue-700 text-white py-4 px-8 rounded-full font-semibold no-underline inline-block transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">Start Your Project</a>
+                        <a href="mailto:info@jaynex.com" class="btn-primary bg-gradient-to-br from-blue-500 to-blue-700 text-white py-4 px-8 rounded-full font-semibold no-underline inline-block transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">Get Free Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="footer-col">
+                    <div class="logo text-3xl font-extrabold mb-4">JAYNEX IT</div>
+                    <p class="text-slate-400 mb-4">Your trusted partner for digital transformation and innovative software solutions.</p>
+                    <div class="social-links flex gap-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="web-development.html" class="text-slate-400 hover:text-white transition-colors duration-300">Web Development</a></li>
+                        <li><a href="ui-ux.html" class="text-slate-400 hover:text-white transition-colors duration-300">UI/UX Design</a></li>
+                        <li><a href="digital-media-managing.html" class="text-slate-400 hover:text-white transition-colors duration-300">Digital Media Managing</a></li>
+                        <li><a href="web-content-writing.html" class="text-slate-400 hover:text-white transition-colors duration-300">Content Writing</a></li>
+                        <li><a href="social-media-management.html" class="text-slate-400 hover:text-white transition-colors duration-300">Social Media Management</a></li>
+                        <li><a href="business-development.html" class="text-slate-400 hover:text-white transition-colors duration-300">Business Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-slate-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Our Team</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Blog</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-slate-400">123 Business Ave, Suite 456</li>
+                        <li class="text-slate-400">New York, NY 10001</li>
+                        <li class="text-slate-400">Phone: (123) 456-7890</li>
+                        <li class="text-slate-400">Email: info@jaynex.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
+                <p>&copy; 2025 JAYNEX IT. All rights reserved. Crafting digital excellence since day one.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white/98', 'shadow-md');
+                header.classList.remove('bg-white/95');
+            } else {
+                header.classList.remove('bg-white/98', 'shadow-md');
+                header.classList.add('bg-white/95');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Counter animation for results
+        const counters = document.querySelectorAll('.result-number');
+
+        const animateCounters = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = counter.textContent;
+                    const isPercentage = target.includes('%');
+                    const targetNum = parseInt(target.replace(/[^0-9]/g, ''));
+
+                    let current = 0;
+                    const increment = targetNum / 30;
+
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= targetNum) {
+                            current = targetNum;
+                            clearInterval(timer);
+                        }
+                        counter.textContent = Math.floor(current) + (isPercentage ? '%' : (target.includes('+') ? '+' : ''));
+                    }, 50);
+
+                    observer.unobserve(counter);
+                }
+            });
+        };
+
+        const counterObserver = new IntersectionObserver(animateCounters, {
+            threshold: 0.5
+        });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+      // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('translate-x-0');
+            mobileNav.classList.toggle('translate-x-full');
+
+            // Animate hamburger to X
+            const spans = hamburger.querySelectorAll('span');
+            if (mobileNav.classList.contains('translate-x-0')) {
+                spans[0].style.transform = 'translateY(8px) rotate(45deg)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
+        });
+
+        // Mobile dropdown toggle
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const dropdown = btn.nextElementSibling;
+                dropdown.classList.toggle('hidden');
+
+                // Rotate the arrow
+                const arrow = btn.querySelector('span');
+                arrow.classList.toggle('rotate-180');
+            });
+        });
+
+        // Close mobile nav when clicking on links
+        document.querySelectorAll('.mobile-dropdown-list a, .mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.add('translate-x-full');
+                mobileNav.classList.remove('translate-x-0');
+
+                // Reset hamburger animation
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            });
+        });
+    </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      if (typeof grecaptcha === "undefined") {
+        alert("reCAPTCHA not loaded. Please refresh the page.");
+        return;
+      }
+
+      const captchaToken = grecaptcha.getResponse();
+      if (!captchaToken) {
+        alert("Please complete the CAPTCHA.");
+        return;
+      }
+
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        service: form.service.value,
+        message: form.message.value,
+        website: form.website.value,
+        captcha: captchaToken
+      };
+
+      try {
+        const response = await fetch("http://localhost:3000/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+
+        if (result.status === "success") {
+          form.reset();
+          grecaptcha.reset();
+        }
+      } catch (err) {
+        console.error("Form submission error:", err);
+        alert("Something went wrong: " + err.message);
+      }
+    });
+  });
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

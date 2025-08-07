@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="logo.png" />
+    <title>Social Media Management - JAYNEX IT</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-list {
+            display: none;
+        }
+
+        .nav-dropdown:hover .dropdown-list,
+        .nav-dropdown .dropdown-list:hover {
+            display: block;
+        }
+
+        .mobile-dropdown-list {
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-dropdown.open .mobile-dropdown-list {
+            display: flex;
+        }
+
+        .mobile-nav {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav.open {
+            transform: translateX(0);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="text-slate-700 overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-lg z-50 py-4 transition-all duration-300">
+        <nav class="max-w-6xl mx-auto px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html"
+                class="text-3xl font-extrabold bg-gradient-to-br from-blue-800 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+                JAYNEX IT
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <ul class="flex space-x-8 list-none">
+                    <li>
+                        <a href="index.html"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Home
+                        </a>
+                    </li>
+
+                    <!-- Desktop Dropdown -->
+                    <li class="relative group">
+                        <button
+                            class="flex items-center font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Services <span class="ml-1">▾</span>
+                        </button>
+                        <ul
+                            class="absolute hidden group-hover:block left-0 mt-0 w-56 bg-white rounded-xl shadow-xl z-50 py-2">
+                            <li>
+                                <a href="web-development.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Web Development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ui-ux.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    UI/UX Design
+                                </a>
+                            </li>
+                            <li>
+                                <a href="digital-media-managing.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Digital Media Managing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="web-content-writing.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Content Writing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="social-media-management.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Social Media Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="business-development.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Business Development
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="index.html#about"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Desktop CTA Button -->
+                <!-- <a href="index.html#contact"
+                    class="hidden md:inline-block bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    Login
+                </a> -->
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="hamburger" class="md:hidden flex flex-col w-8 h-8 justify-center items-center z-50">
+                <span class="block w-7 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-slate-700 transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileNav"
+            class="fixed top-0 right-0 w-72 h-screen bg-white shadow-2xl z-40 flex flex-col p-6 translate-x-full md:hidden transition-transform duration-300">
+            <div class="mt-20 space-y-6">
+                <a href="index.html"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    Home
+                </a>
+
+                <!-- Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button
+                        class="mobile-dropdown-btn flex items-center justify-between w-full text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                        Services <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-list hidden flex-col pl-4 mt-2 space-y-3">
+                        <a href="web-development.html"
+                            class="text-base font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 block">
+                            Web Development
+                        </a>
+                        <a href="ui-ux.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            UI/UX Design
+                        </a>
+                        <a href="digital-media-managing.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Digital Media Managing
+                        </a>
+                        <a href="web-content-writing.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Content Writing
+                        </a>
+                        <a href="social-media-management.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Social Media Management
+                        </a>
+                        <a href="business-development.html"
+                            class="text-base font-medium block text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Business Development
+                        </a>
+                    </div>
+                </div>
+
+                <a href="index.html#about"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    About
+                </a>
+                <a href="index.html#contact"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    Contact
+                </a>
+                <br />
+                <!-- Mobile CTA Button -->
+                <a href="index.html#contact"
+                    class="mt-12 w-full bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-full font-semibold text-center hover:shadow-lg transition-all duration-300">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content with offset -->
+    <div class="mt-20">
+        <!-- Hero Section -->
+        <section
+            class="min-h-[80vh] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex items-center relative overflow-hidden py-16 md:py-24">
+
+            <div
+                class="max-w-6xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight animate-slideInLeft">
+                        Amplify Your <span
+                            class="bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent">Social
+                            Presence</span> With Expert Management</h1>
+                    <p class="text-lg text-slate-300 mb-8 animate-slideInLeft delay-200">Transform your social media
+                        into a powerful business tool. We create engaging content, build communities, and drive
+                        meaningful interactions that convert followers into customers.</p>
+                    <div class="flex flex-wrap gap-6 justify-center md:justify-start">
+                        <a href="#features"
+                            class="bg-gradient-to-br from-blue-500 to-blue-700 text-white px-8 py-4 rounded-full font-semibold no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">Our
+                            Approach</a>
+                        <a href="index.html#contact"
+                            class="bg-transparent text-white px-8 py-4 rounded-full font-semibold no-underline border-2 border-slate-600 transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10">Start
+                            Campaign</a>
+                    </div>
+                </div>
+                <div class="relative animate-slideInRight">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 m-4 animate-float"
+                        style="animation-delay: 0s;">
+                        <h4 class="text-white mb-2">📈 Growth Strategy</h4>
+                        <p class="text-slate-300 text-sm">Data-driven social growth</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 m-4 animate-float"
+                        style="animation-delay: -1s;">
+                        <h4 class="text-white mb-2">🎯 Content Creation</h4>
+                        <p class="text-slate-300 text-sm">Engaging visual content</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 m-4 animate-float"
+                        style="animation-delay: -2s;">
+                        <h4 class="text-white mb-2">💬 Community Building</h4>
+                        <p class="text-slate-300 text-sm">Active audience engagement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-200">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">Complete Social Media Solutions
+                    </h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">From strategy to execution, we handle every
+                        aspect of your social media presence to ensure maximum impact and engagement.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div
+                        class="bg-white p-10 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden animate-on-scroll">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            📊</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Strategic Planning</h3>
+                        <p class="text-slate-600">We develop comprehensive social media strategies tailored to your
+                            brand goals, target audience, and industry trends to maximize your online impact.</p>
+                    </div>
+                    <div
+                        class="bg-white p-10 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden animate-on-scroll">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            🎨</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Content Creation</h3>
+                        <p class="text-slate-600">Our creative team produces high-quality visual content, engaging copy,
+                            and multimedia posts that resonate with your audience and drive engagement.</p>
+                    </div>
+                    <div
+                        class="bg-white p-10 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden animate-on-scroll">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            📅</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Posting & Scheduling</h3>
+                        <p class="text-slate-600">Consistent posting schedule across all platforms with optimal timing
+                            to reach your audience when they're most active and engaged.</p>
+                    </div>
+                    <div
+                        class="bg-white p-10 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden animate-on-scroll">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            💬</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Community Management</h3>
+                        <p class="text-slate-600">Active engagement with your audience, responding to comments, managing
+                            conversations, and building a loyal community around your brand.</p>
+                    </div>
+                    <div
+                        class="bg-white p-10 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden animate-on-scroll">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            📈</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Analytics & Reporting</h3>
+                        <p class="text-slate-600">Detailed performance tracking and monthly reports showing growth
+                            metrics, engagement rates, and actionable insights for continuous improvement.</p>
+                    </div>
+                    <div
+                        class="bg-white p-10 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden animate-on-scroll">
+                        <div
+                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            🎯</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Paid Advertising</h3>
+                        <p class="text-slate-600">Strategic social media advertising campaigns to expand your reach,
+                            target specific demographics, and drive conversions with optimized ad spend.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">Platform Expertise</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">We manage your presence across all major social
+                        media platforms with platform-specific strategies for maximum effectiveness.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div
+                        class="bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-on-scroll">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">📘 Facebook Management</h3>
+                        <p class="text-slate-600 text-sm">Build communities and drive engagement with targeted Facebook
+                            strategies</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-on-scroll">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">📷 Instagram Growth</h3>
+                        <p class="text-slate-600 text-sm">Visual storytelling and influencer-style content that captures
+                            attention</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-on-scroll">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">🐦 Twitter Engagement</h3>
+                        <p class="text-slate-600 text-sm">Real-time conversations and thought leadership in your
+                            industry</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-on-scroll">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">💼 LinkedIn Professional</h3>
+                        <p class="text-slate-600 text-sm">B2B networking and professional brand building for business
+                            growth</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-on-scroll">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">🎵 TikTok Creative</h3>
+                        <p class="text-slate-600 text-sm">Trending content and viral marketing strategies for younger
+                            demographics</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-on-scroll">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">📺 YouTube Channel</h3>
+                        <p class="text-slate-600 text-sm">Video content strategy and channel optimization for long-term
+                            growth</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-200">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">Our Process</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">A systematic approach to social media success,
+                        from initial strategy to ongoing optimization and growth.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="bg-white p-8 rounded-xl text-center shadow-md animate-on-scroll">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                            1</div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Discovery & Audit</h3>
+                        <p class="text-slate-600 text-sm">We analyze your current social presence and identify
+                            opportunities for growth</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl text-center shadow-md animate-on-scroll">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                            2</div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Strategy Development</h3>
+                        <p class="text-slate-600 text-sm">Create a comprehensive social media strategy aligned with your
+                            business goals</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl text-center shadow-md animate-on-scroll">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                            3</div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Content Planning</h3>
+                        <p class="text-slate-600 text-sm">Develop content calendars and create engaging posts for all
+                            platforms</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl text-center shadow-md animate-on-scroll">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                            4</div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Implementation</h3>
+                        <p class="text-slate-600 text-sm">Execute the strategy with consistent posting and active
+                            community management</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl text-center shadow-md animate-on-scroll">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                            5</div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Monitor & Optimize</h3>
+                        <p class="text-slate-600 text-sm">Track performance metrics and continuously optimize for better
+                            results</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 md:py-24 bg-gradient-to-br from-slate-800 to-slate-700 text-white">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="text-center animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Ready to Dominate Social Media?</h2>
+                    <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Let's create a social media presence that
+                        not only engages your audience but drives real business results. Start your social media
+                        transformation today.</p>
+                    <div class="flex flex-wrap gap-6 justify-center">
+                        <a href="index.html#contact"
+                            class="bg-gradient-to-br from-blue-500 to-blue-700 text-white px-8 py-4 rounded-full font-semibold no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">Start
+                            Your Campaign</a>
+                        <a href="index.html"
+                            class="bg-transparent text-white px-8 py-4 rounded-full font-semibold no-underline border-2 border-slate-500 transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10">View
+                            All Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="footer-col">
+                    <div
+                        class="text-3xl font-extrabold bg-gradient-to-br from-blue-500 to-blue-400 bg-clip-text text-transparent mb-4">
+                        JAYNEX IT</div>
+                    <p class="text-slate-400 mb-4">Your trusted partner for digital transformation and innovative
+                        software solutions.</p>
+                    <div class="social-links flex gap-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-twitter">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-instagram">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="web-development.html"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">Web
+                                Development</a></li>
+                        <li><a href="ui-ux.html"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">UI/UX Design</a>
+                        </li>
+                        <li><a href="digital-media-managing.html"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">Digital Media
+                                Managing</a></li>
+                        <li><a href="web-content-writing.html"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">Content
+                                Writing</a></li>
+                        <li><a href="social-media-management.html"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">Social Media
+                                Management</a></li>
+                        <li><a href="business-development.html"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">Business
+                                Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Our
+                                Team</a></li>
+                        <li><a href="#"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Blog</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-slate-400 hover:text-white transition-colors duration-300">Testimonials</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-slate-400">123 Business Ave, Suite 456</li>
+                        <li class="text-slate-400">New York, NY 10001</li>
+                        <li class="text-slate-400">Phone: (123) 456-7890</li>
+                        <li class="text-slate-400">Email: info@jaynex.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
+                <p>&copy; 2025 JAYNEX IT. All rights reserved. Crafting digital excellence since day one.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.toggle('translate-x-0');
+            mobileNav.classList.toggle('translate-x-full');
+
+            // Animate hamburger to X
+            if (mobileNav.classList.contains('translate-x-0')) {
+                line1.style.transform = 'translateY(8px) rotate(45deg)';
+                line2.style.opacity = '0';
+                line3.style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                line1.style.transform = '';
+                line2.style.opacity = '';
+                line3.style.transform = '';
+            }
+        });
+
+        // Mobile dropdown toggle
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const dropdown = btn.parentElement;
+                const list = dropdown.querySelector('.mobile-dropdown-list');
+                const arrow = btn.querySelector('span');
+
+                list.classList.toggle('hidden');
+                arrow.classList.toggle('rotate-180');
+            });
+        });
+
+        // Close mobile nav when clicking on links
+        document.querySelectorAll('.mobile-dropdown-list a, a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.add('translate-x-full');
+                mobileNav.classList.remove('translate-x-0');
+
+                // Reset hamburger animation
+                line1.style.transform = '';
+                line2.style.opacity = '';
+                line3.style.transform = '';
+
+                // Close any open dropdowns
+                document.querySelectorAll('.mobile-dropdown-list').forEach(list => {
+                    list.classList.add('hidden');
+                });
+                document.querySelectorAll('.mobile-dropdown-btn span').forEach(arrow => {
+                    arrow.classList.remove('rotate-180');
+                });
+            });
+        });
+    </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      if (typeof grecaptcha === "undefined") {
+        alert("reCAPTCHA not loaded. Please refresh the page.");
+        return;
+      }
+
+      const captchaToken = grecaptcha.getResponse();
+      if (!captchaToken) {
+        alert("Please complete the CAPTCHA.");
+        return;
+      }
+
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        service: form.service.value,
+        message: form.message.value,
+        website: form.website.value,
+        captcha: captchaToken
+      };
+
+      try {
+        const response = await fetch("http://localhost:3000/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+
+        if (result.status === "success") {
+          form.reset();
+          grecaptcha.reset();
+        }
+      } catch (err) {
+        console.error("Form submission error:", err);
+        alert("Something went wrong: " + err.message);
+      }
+    });
+  });
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

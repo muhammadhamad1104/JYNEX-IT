@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="logo.png" />
+    <title>Business Development Services - JAYNEX IT</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style type="text/css">
+        /* Custom styles that can't be easily done with Tailwind */
+        .logo {
+            background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .nav-links a {
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-features li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 leading-relaxed overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-lg z-50 py-4 transition-all duration-300">
+        <nav class="max-w-6xl mx-auto px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html"
+                class="text-3xl font-extrabold bg-gradient-to-br from-blue-800 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+                JAYNEX IT
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <ul class="flex space-x-8 list-none">
+                    <li>
+                        <a href="index.html"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Home
+                        </a>
+                    </li>
+
+                    <!-- Desktop Dropdown -->
+                    <li class="relative group">
+                        <button
+                            class="flex items-center font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Services <span class="ml-1">▾</span>
+                        </button>
+                        <ul
+                            class="absolute hidden group-hover:block left-0 mt-0 w-56 bg-white rounded-xl shadow-xl z-50 py-2">
+                            <li>
+                                <a href="web-development.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Web Development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ui-ux.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    UI/UX Design
+                                </a>
+                            </li>
+                            <li>
+                                <a href="digital-media-managing.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Digital Media Managing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="web-content-writing.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Content Writing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="social-media-management.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Social Media Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="business-development.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Business Development
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="index.html#about"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Desktop CTA Button -->
+                <!-- <a href="index.html#contact"
+                    class="hidden md:inline-block bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    Login
+                </a> -->
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="hamburger" class="md:hidden flex flex-col w-8 h-8 justify-center items-center z-50">
+                <span class="block w-7 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-slate-700 transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileNav"
+            class="fixed top-0 right-0 w-72 h-screen bg-white shadow-2xl z-40 flex flex-col p-6 translate-x-full md:hidden transition-transform duration-300">
+            <div class="mt-20 space-y-6">
+                <a href="index.html"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    Home
+                </a>
+
+                <!-- Mobile Dropdown -->
+               <div class="mobile-dropdown">
+                    <button
+                        class="mobile-dropdown-btn flex items-center justify-between w-full text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                        Services <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-list hidden flex-col pl-4 mt-2 space-y-3">
+                        <a href="web-development.html"
+                            class="text-base font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 block">
+                            Web Development
+                        </a>
+                        <a href="ui-ux.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            UI/UX Design
+                        </a>
+                        <a href="digital-media-managing.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Digital Media Managing
+                        </a>
+                        <a href="web-content-writing.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Content Writing
+                        </a>
+                        <a href="social-media-management.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Social Media Management
+                        </a>
+                        <a href="business-development.html"
+                            class="text-base font-medium block text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Business Development
+                        </a>
+                    </div>
+                </div>
+
+                <a href="index.html#about"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    About
+                </a>
+                <a href="index.html#contact"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    Contact
+                </a>  <br />
+
+                <!-- Mobile CTA Button -->
+                <a href="index.html#contact"
+                    class="mt-12 w-full bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-full font-semibold text-center hover:shadow-lg transition-all duration-300">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-offset mt-20">
+        <!-- Hero Section -->
+        <section class="hero min-h-[60vh] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex items-center relative overflow-hidden">
+            <div class="hero-content max-w-6xl mx-auto px-8 relative z-10 text-center">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight animate-slideInUp">Strategic <span class="highlight">Business Development</span></h1>
+                <p class="text-xl text-slate-300 mb-8 max-w-3xl mx-auto animate-slideInUp animation-delay-200">Accelerate your business growth with our comprehensive development strategies. We help you identify opportunities, optimize operations, and implement solutions for sustainable success.</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="content-section py-16">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="section-title text-center mb-12 animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Our Business Development Services</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">Comprehensive solutions to drive your business forward and achieve sustainable growth in today's competitive market.</p>
+                </div>
+
+                <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">📊</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Strategic Planning</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Develop comprehensive business strategies that align with your goals and market opportunities.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Market analysis and research</li>
+                            <li class="text-slate-600 mb-2">Competitive positioning</li>
+                            <li class="text-slate-600 mb-2">Growth roadmap creation</li>
+                            <li class="text-slate-600 mb-2">KPI development and tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">🎯</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Market Expansion</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Identify and capitalize on new market opportunities to expand your business reach.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Target market identification</li>
+                            <li class="text-slate-600 mb-2">Entry strategy development</li>
+                            <li class="text-slate-600 mb-2">Partnership opportunities</li>
+                            <li class="text-slate-600 mb-2">Risk assessment and mitigation</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">💼</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Business Process Optimization</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Streamline operations and improve efficiency to maximize your business potential.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Workflow analysis and improvement</li>
+                            <li class="text-slate-600 mb-2">System integration solutions</li>
+                            <li class="text-slate-600 mb-2">Performance optimization</li>
+                            <li class="text-slate-600 mb-2">Cost reduction strategies</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">🚀</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Growth Strategy Implementation</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Execute proven strategies to accelerate your business growth and market presence.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Revenue growth planning</li>
+                            <li class="text-slate-600 mb-2">Customer acquisition strategies</li>
+                            <li class="text-slate-600 mb-2">Product/service development</li>
+                            <li class="text-slate-600 mb-2">Scaling operations support</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">🤝</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Partnership Development</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Build strategic partnerships and alliances that drive mutual growth and success.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Partner identification and vetting</li>
+                            <li class="text-slate-600 mb-2">Partnership agreement structuring</li>
+                            <li class="text-slate-600 mb-2">Collaboration strategy development</li>
+                            <li class="text-slate-600 mb-2">Relationship management</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card bg-white p-10 rounded-2xl shadow-md transition-all duration-300 relative overflow-hidden border border-slate-100 animate-on-scroll hover:-translate-y-2 hover:shadow-xl">
+                        <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-white text-2xl mb-6">📈</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Digital Transformation</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Modernize your business operations with cutting-edge digital solutions and technologies.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2">Technology assessment and planning</li>
+                            <li class="text-slate-600 mb-2">Digital strategy development</li>
+                            <li class="text-slate-600 mb-2">Implementation roadmap</li>
+                            <li class="text-slate-600 mb-2">Change management support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section bg-gradient-to-br from-slate-50 to-slate-200 py-24">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="section-title text-center mb-12 animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Our Development Process</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">A proven methodology that ensures your business development initiatives deliver maximum impact and sustainable results.</p>
+                </div>
+
+                <div class="process-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="process-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">1</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Discovery & Analysis</h4>
+                        <p class="text-slate-600 leading-relaxed">We conduct thorough analysis of your business, market position, and growth opportunities to understand your unique challenges and goals.</p>
+                    </div>
+
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="process-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">2</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Strategy Development</h4>
+                        <p class="text-slate-600 leading-relaxed">Based on our findings, we create a customized business development strategy tailored to your specific needs and market conditions.</p>
+                    </div>
+
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="process-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">3</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Implementation Planning</h4>
+                        <p class="text-slate-600 leading-relaxed">We develop detailed implementation plans with clear timelines, milestones, and resource allocation to ensure successful execution.</p>
+                    </div>
+
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="process-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">4</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Execution & Support</h4>
+                        <p class="text-slate-600 leading-relaxed">Our team works closely with you to implement the strategies, providing ongoing support and guidance throughout the process.</p>
+                    </div>
+
+                    <div class="process-step bg-white p-8 rounded-2xl shadow-md text-center relative animate-on-scroll">
+                        <div class="process-number w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-6">5</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Monitor & Optimize</h4>
+                        <p class="text-slate-600 leading-relaxed">We continuously monitor progress, measure results, and optimize strategies to ensure sustained growth and success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section py-16 bg-white">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="section-title text-center mb-12 animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Our Business Development Impact</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">Real results that speak to our commitment to driving business growth and success.</p>
+                </div>
+
+                <div class="stats-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="stat-card bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-2xl text-center transition-all duration-300 animate-on-scroll hover:-translate-y-1">
+                        <span class="stat-number text-4xl font-extrabold text-blue-500 block mb-2">150%</span>
+                        <span class="stat-label text-slate-600 font-semibold">Average Revenue Growth</span>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-2xl text-center transition-all duration-300 animate-on-scroll hover:-translate-y-1">
+                        <span class="stat-number text-4xl font-extrabold text-blue-500 block mb-2">30+</span>
+                        <span class="stat-label text-slate-600 font-semibold">Businesses Transformed</span>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-2xl text-center transition-all duration-300 animate-on-scroll hover:-translate-y-1">
+                        <span class="stat-number text-4xl font-extrabold text-blue-500 block mb-2">95%</span>
+                        <span class="stat-label text-slate-600 font-semibold">Client Retention Rate</span>
+                    </div>
+                    <div class="stat-card bg-gradient-to-br from-slate-100 to-slate-200 p-8 rounded-2xl text-center transition-all duration-300 animate-on-scroll hover:-translate-y-1">
+                        <span class="stat-number text-4xl font-extrabold text-blue-500 block mb-2">6 Mo</span>
+                        <span class="stat-label text-slate-600 font-semibold">Average ROI Timeline</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section bg-gradient-to-br from-slate-800 to-slate-700 text-white py-24 text-center">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="cta-content animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold mb-6">Ready to Accelerate Your Business Growth?</h2>
+                    <p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">Let's discuss how our business development expertise can help you achieve your goals and unlock new opportunities for success.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="index.html#contact" class="btn-primary bg-gradient-to-br from-blue-500 to-blue-700 text-white py-4 px-8 rounded-full font-semibold no-underline inline-block transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">Start Your Growth Journey</a>
+                        <a href="mailto:info@jaynex.com" class="btn-secondary bg-transparent text-white py-4 px-8 border-2 border-slate-500 rounded-full font-semibold no-underline inline-block transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10">Schedule Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="footer-col">
+                    <div class="logo text-3xl font-extrabold mb-4">JAYNEX IT</div>
+                    <p class="text-slate-400 mb-4">Your trusted partner for digital transformation and innovative software solutions.</p>
+                    <div class="social-links flex gap-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="web-development.html" class="text-slate-400 hover:text-white transition-colors duration-300">Web Development</a></li>
+                        <li><a href="ui-ux.html" class="text-slate-400 hover:text-white transition-colors duration-300">UI/UX Design</a></li>
+                        <li><a href="digital-media-managing.html" class="text-slate-400 hover:text-white transition-colors duration-300">Digital Media Managing</a></li>
+                        <li><a href="web-content-writing.html" class="text-slate-400 hover:text-white transition-colors duration-300">Content Writing</a></li>
+                        <li><a href="social-media-management.html" class="text-slate-400 hover:text-white transition-colors duration-300">Social Media Management</a></li>
+                        <li><a href="business-development.html" class="text-slate-400 hover:text-white transition-colors duration-300">Business Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-slate-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Our Team</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Blog</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-slate-400">123 Business Ave, Suite 456</li>
+                        <li class="text-slate-400">New York, NY 10001</li>
+                        <li class="text-slate-400">Phone: (123) 456-7890</li>
+                        <li class="text-slate-400">Email: info@jaynex.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
+                <p>&copy; 2025 JAYNEX IT. All rights reserved. Crafting digital excellence since day one.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white/98', 'shadow-md');
+                header.classList.remove('bg-white/95');
+            } else {
+                header.classList.remove('bg-white/98', 'shadow-md');
+                header.classList.add('bg-white/95');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.service-card, .stat-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+       // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('translate-x-0');
+            mobileNav.classList.toggle('translate-x-full');
+
+            // Animate hamburger to X
+            const spans = hamburger.querySelectorAll('span');
+            if (mobileNav.classList.contains('translate-x-0')) {
+                spans[0].style.transform = 'translateY(8px) rotate(45deg)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
+        });
+
+        // Mobile dropdown toggle
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const dropdown = btn.nextElementSibling;
+                dropdown.classList.toggle('hidden');
+
+                // Rotate the arrow
+                const arrow = btn.querySelector('span');
+                arrow.classList.toggle('rotate-180');
+            });
+        });
+
+        // Close mobile nav when clicking on links
+        document.querySelectorAll('.mobile-dropdown-list a, .mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.add('translate-x-full');
+                mobileNav.classList.remove('translate-x-0');
+
+                // Reset hamburger animation
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            });
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        const successMsg = document.createElement('p');
+        successMsg.textContent = "Message sent successfully!";
+        successMsg.className = "mt-4 text-green-600 font-semibold hidden";
+        contactForm.parentElement.appendChild(successMsg);
+
+        contactForm.addEventListener('submit', function () {
+            setTimeout(() => {
+            successMsg.classList.remove('hidden');
+            contactForm.reset();
+            }, 1000);
+        });
+    </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      if (typeof grecaptcha === "undefined") {
+        alert("reCAPTCHA not loaded. Please refresh the page.");
+        return;
+      }
+
+      const captchaToken = grecaptcha.getResponse();
+      if (!captchaToken) {
+        alert("Please complete the CAPTCHA.");
+        return;
+      }
+
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        service: form.service.value,
+        message: form.message.value,
+        website: form.website.value,
+        captcha: captchaToken
+      };
+
+      try {
+        const response = await fetch("http://localhost:3000/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+
+        if (result.status === "success") {
+          form.reset();
+          grecaptcha.reset();
+        }
+      } catch (err) {
+        console.error("Form submission error:", err);
+        alert("Something went wrong: " + err.message);
+      }
+    });
+  });
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

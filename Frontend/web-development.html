@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="logo.png" />
+    <title>Web Development Services - JAYNEX IT</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .content-offset {
+            margin-top: 80px;
+        }
+
+        .dropdown-list {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style: none;
+            background: white;
+            border-radius: 12px;
+            min-width: 220px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .nav-dropdown:hover .dropdown-list,
+        .nav-dropdown .dropdown-list:hover {
+            display: block;
+        }
+
+        .mobile-dropdown-list {
+            display: none;
+            flex-direction: column;
+            padding-left: 1rem;
+        }
+
+        .mobile-dropdown.open .mobile-dropdown-list {
+            display: flex;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 70vw;
+            max-width: 320px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: -2px 0 20px rgba(0, 0, 0, 0.08);
+            z-index: 1050;
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+            gap: 2rem;
+            transition: transform 0.3s;
+            transform: translateX(100%);
+        }
+
+        .mobile-nav.open {
+            display: flex;
+            transform: translateX(0);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+  <header class="fixed top-0 w-full bg-white/95 backdrop-blur-lg z-50 py-4 transition-all duration-300">
+        <nav class="max-w-6xl mx-auto px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html"
+                class="text-3xl font-extrabold bg-gradient-to-br from-blue-800 via-blue-500 to-blue-400 bg-clip-text text-transparent">
+                JAYNEX IT
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <ul class="flex space-x-8 list-none">
+                    <li>
+                        <a href="index.html"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Home
+                        </a>
+                    </li>
+
+                    <!-- Desktop Dropdown -->
+                    <li class="relative group">
+                        <button
+                            class="flex items-center font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Services <span class="ml-1">▾</span>
+                        </button>
+                        <ul
+                            class="absolute hidden group-hover:block left-0 mt-0 w-56 bg-white rounded-xl shadow-xl z-50 py-2">
+                            <li>
+                                <a href="web-development.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Web Development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ui-ux.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    UI/UX Design
+                                </a>
+                            </li>
+                            <li>
+                                <a href="digital-media-managing.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Digital Media Managing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="web-content-writing.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Content Writing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="social-media-management.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Social Media Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="business-development.html"
+                                    class="block px-6 py-2 font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                                    Business Development
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="index.html#about"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact"
+                            class="relative font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 nav-link">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Desktop CTA Button -->
+                <!-- <a href="index.html#contact"
+                    class="hidden md:inline-block bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    Login
+                </a> -->
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="hamburger" class="md:hidden flex flex-col w-8 h-8 justify-center items-center z-50">
+                <span class="block w-7 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-slate-700 mb-1.5 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-slate-700 transition-all duration-300"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileNav"
+            class="fixed top-0 right-0 w-72 h-screen bg-white shadow-2xl z-40 flex flex-col p-6 translate-x-full md:hidden transition-transform duration-300">
+            <div class="mt-20 space-y-6">
+                <a href="index.html"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    Home
+                </a>
+
+                <!-- Mobile Dropdown -->
+                 <div class="mobile-dropdown">
+                    <button
+                        class="mobile-dropdown-btn flex items-center justify-between w-full text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                        Services <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-list hidden flex-col pl-4 mt-2 space-y-3">
+                        <a href="web-development.html"
+                            class="text-base font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300 block">
+                            Web Development
+                        </a>
+                        <a href="ui-ux.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            UI/UX Design
+                        </a>
+                        <a href="digital-media-managing.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Digital Media Managing
+                        </a>
+                        <a href="web-content-writing.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Content Writing
+                        </a>
+                        <a href="social-media-management.html"
+                            class="text-base block font-medium text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Social Media Management
+                        </a>
+                        <a href="business-development.html"
+                            class="text-base font-medium block text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                            Business Development
+                        </a>
+                    </div>
+                </div>
+
+                <a href="index.html#about"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    About
+                </a>
+                <a href="index.html#contact"
+                    class="block text-lg font-semibold text-slate-700 hover:text-blue-500 transition-colors duration-300">
+                    Contact
+                </a>    <br />
+
+                <!-- Mobile CTA Button -->
+                <a href="index.html#contact"
+                    class="mt-12 w-full bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-3 rounded-full font-semibold text-center hover:shadow-lg transition-all duration-300">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-offset">
+        <!-- Hero Section -->
+        <section
+            class="hero bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 py-32 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-8 text-center relative z-10">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">Professional <span
+                        class="highlight">Web Development</span> Services</h1>
+                <p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">Transform your ideas into powerful, responsive
+                    websites and web applications that drive business growth and deliver exceptional user experiences.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact"
+                        class="btn-primary bg-gradient-to-r from-blue-500 to-blue-700 text-white py-4 px-8 rounded-full font-semibold hover:translate-y-[-3px] hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300">Start
+                        Your Project</a>
+                    <a href="#portfolio"
+                        class="btn-secondary border-2 border-slate-600 text-white py-4 px-8 rounded-full font-semibold hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300">View
+                        Portfolio</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section id="services" class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Our Web Development Services</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">From simple websites to complex web
+                        applications, we deliver cutting-edge solutions tailored to your business needs.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div
+                        class="service-card bg-white p-10 rounded-2xl shadow-lg border border-slate-100 relative overflow-hidden transition-all duration-300 hover:translate-y-[-10px] hover:shadow-xl">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            🌐</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Custom Website Development</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Bespoke websites built from scratch, perfectly
+                            tailored to your brand and business requirements.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2 pl-6 relative">Responsive design for all devices</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">SEO-optimized structure</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Fast loading speeds</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Content management system</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Analytics integration</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="service-card bg-white p-10 rounded-2xl shadow-lg border border-slate-100 relative overflow-hidden transition-all duration-300 hover:translate-y-[-10px] hover:shadow-xl">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            ⚛️</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">React Web Applications</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Modern, interactive web applications built with
+                            React for superior performance and user experience.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2 pl-6 relative">Single Page Applications (SPA)</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Component-based architecture</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">State management (Redux/Context)</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">API integration</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Real-time functionality</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="service-card bg-white p-10 rounded-2xl shadow-lg border border-slate-100 relative overflow-hidden transition-all duration-300 hover:translate-y-[-10px] hover:shadow-xl">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            🛒</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">E-commerce Solutions</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Complete online store development with secure
+                            payment processing and inventory management.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2 pl-6 relative">Shopping cart functionality</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Payment gateway integration</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Inventory management</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Order tracking system</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Admin dashboard</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="service-card bg-white p-10 rounded-2xl shadow-lg border border-slate-100 relative overflow-hidden transition-all duration-300 hover:translate-y-[-10px] hover:shadow-xl">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            📱</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Progressive Web Apps</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">App-like experiences that work seamlessly across
+                            all devices and platforms.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2 pl-6 relative">Offline functionality</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Push notifications</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">App-like interface</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Cross-platform compatibility</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Fast installation</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="service-card bg-white p-10 rounded-2xl shadow-lg border border-slate-100 relative overflow-hidden transition-all duration-300 hover:translate-y-[-10px] hover:shadow-xl">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            🔧</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Website Maintenance</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Ongoing support and maintenance to keep your
+                            website secure, updated, and performing optimally.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2 pl-6 relative">Regular security updates</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Performance optimization</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Content updates</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Backup management</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">24/7 monitoring</li>
+                        </ul>
+                    </div>
+                    <div
+                        class="service-card bg-white p-10 rounded-2xl shadow-lg border border-slate-100 relative overflow-hidden transition-all duration-300 hover:translate-y-[-10px] hover:shadow-xl">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-xl flex items-center justify-center text-2xl text-white mb-6">
+                            🚀</div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Performance Optimization</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Speed up your existing website and improve search
+                            engine rankings with our optimization services.</p>
+                        <ul class="service-features list-none pl-0">
+                            <li class="text-slate-600 mb-2 pl-6 relative">Page speed optimization</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Image compression</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Code minification</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">CDN implementation</li>
+                            <li class="text-slate-600 mb-2 pl-6 relative">Database optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack -->
+        <section class="py-24 bg-gradient-to-br from-slate-50 to-slate-200">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Technologies We Use</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">We leverage cutting-edge technologies to build
+                        robust, scalable, and future-proof web solutions.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8 mt-12">
+                    <div
+                        class="tech-item bg-white p-8 rounded-xl shadow-md text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
+                        <div class="tech-icon text-4xl mb-4">⚛️</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">React</h4>
+                        <p class="text-sm text-slate-600">Modern UI library</p>
+                    </div>
+                    <div
+                        class="tech-item bg-white p-8 rounded-xl shadow-md text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
+                        <div class="tech-icon text-4xl mb-4">🟢</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">Node.js</h4>
+                        <p class="text-sm text-slate-600">Server-side JavaScript</p>
+                    </div>
+                    <div
+                        class="tech-item bg-white p-8 rounded-xl shadow-md text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
+                        <div class="tech-icon text-4xl mb-4">🐍</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">Python</h4>
+                        <p class="text-sm text-slate-600">Backend development</p>
+                    </div>
+                    <div
+                        class="tech-item bg-white p-8 rounded-xl shadow-md text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
+                        <div class="tech-icon text-4xl mb-4">🎨</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">Tailwind CSS</h4>
+                        <p class="text-sm text-slate-600">Utility-first CSS</p>
+                    </div>
+                    <div
+                        class="tech-item bg-white p-8 rounded-xl shadow-md text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
+                        <div class="tech-icon text-4xl mb-4">🗄️</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">MongoDB</h4>
+                        <p class="text-sm text-slate-600">NoSQL database</p>
+                    </div>
+                    <div
+                        class="tech-item bg-white p-8 rounded-xl shadow-md text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
+                        <div class="tech-icon text-4xl mb-4">🐘</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">PostgreSQL</h4>
+                        <p class="text-sm text-slate-600">Relational database</p>
+                    </div>
+                    <div
+                        class="tech-item bg-white p-8 rounded-xl shadow-md text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
+                        <div class="tech-icon text-4xl mb-4">☁️</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">AWS</h4>
+                        <p class="text-sm text-slate-600">Cloud hosting</p>
+                    </div>
+                    <div
+                        class="tech-item bg-white p-8 rounded-xl shadow-md text-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
+                        <div class="tech-icon text-4xl mb-4">🔥</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">Firebase</h4>
+                        <p class="text-sm text-slate-600">Backend as a Service</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Process -->
+        <section class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Our Development Process</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">We follow a proven methodology to ensure your
+                        project is delivered on time, within budget, and exceeds expectations.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
+                    <div class="process-step text-center relative">
+                        <div
+                            class="step-number w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                            1</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Discovery & Planning</h4>
+                        <p class="text-slate-600 leading-relaxed">We analyze your requirements, research your market,
+                            and create a detailed project roadmap.</p>
+                    </div>
+                    <div class="process-step text-center relative">
+                        <div
+                            class="step-number w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                            2</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Design & Prototyping</h4>
+                        <p class="text-slate-600 leading-relaxed">Creating wireframes, mockups, and interactive
+                            prototypes to visualize the final product.</p>
+                    </div>
+                    <div class="process-step text-center relative">
+                        <div
+                            class="step-number w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                            3</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Development</h4>
+                        <p class="text-slate-600 leading-relaxed">Building your website using best practices, clean
+                            code, and modern technologies.</p>
+                    </div>
+                    <div class="process-step text-center relative">
+                        <div
+                            class="step-number w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                            4</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Testing & QA</h4>
+                        <p class="text-slate-600 leading-relaxed">Rigorous testing across devices, browsers, and
+                            performance benchmarks.</p>
+                    </div>
+                    <div class="process-step text-center relative">
+                        <div
+                            class="step-number w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                            5</div>
+                        <h4 class="text-lg font-bold text-slate-800 mb-4">Launch & Support</h4>
+                        <p class="text-slate-600 leading-relaxed">Deploying your website and providing ongoing
+                            maintenance and support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Preview -->
+        <section id="portfolio" class="py-24 bg-gradient-to-br from-slate-800 to-slate-700 text-white">
+            <div class="max-w-6xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold text-white mb-4">Recent Projects</h2>
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto">Take a look at some of our recent web
+                        development projects that showcase our expertise and creativity.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div
+                        class="portfolio-item bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 p-8 rounded-2xl transition-all duration-300 hover:translate-y-[-5px] hover:bg-opacity-15">
+                        <h4 class="text-xl font-bold text-white mb-4">E-commerce Platform</h4>
+                        <p class="text-slate-300 mb-6">A full-featured online store with custom shopping cart, payment
+                            integration, and admin dashboard.</p>
+                        <div class="portfolio-tags flex flex-wrap gap-2">
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">React</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">Node.js</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">MongoDB</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">Stripe</span>
+                        </div>
+                    </div>
+                    <div
+                        class="portfolio-item bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 p-8 rounded-2xl transition-all duration-300 hover:translate-y-[-5px] hover:bg-opacity-15">
+                        <h4 class="text-xl font-bold text-white mb-4">Corporate Website</h4>
+                        <p class="text-slate-300 mb-6">Professional corporate website with CMS, blog functionality, and
+                            lead generation forms.</p>
+                        <div class="portfolio-tags flex flex-wrap gap-2">
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">HTML5</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">CSS3</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">JavaScript</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">WordPress</span>
+                        </div>
+                    </div>
+                    <div
+                        class="portfolio-item bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 p-8 rounded-2xl transition-all duration-300 hover:translate-y-[-5px] hover:bg-opacity-15">
+                        <h4 class="text-xl font-bold text-white mb-4">SaaS Application</h4>
+                        <p class="text-slate-300 mb-6">Cloud-based software application with user authentication,
+                            subscription management, and analytics.</p>
+                        <div class="portfolio-tags flex flex-wrap gap-2">
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">React</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">Python</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">PostgreSQL</span>
+                            <span
+                                class="tag bg-blue-500/20 text-blue-300 py-1 px-3 rounded-full text-sm font-medium">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center">
+            <div class="max-w-6xl mx-auto px-8">
+                <h2 class="text-4xl font-extrabold mb-6">Ready to Build Your Dream Website?</h2>
+                <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">Let's discuss your project and bring your vision to
+                    life with our expert web development services.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact"
+                        class="btn-secondary bg-white text-blue-500 py-4 px-8 rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300">Get
+                        Free Quote</a>
+                    <a href="mailto:info@jaynex.com"
+                        class="btn-secondary border-2 border-white text-white py-4 px-8 rounded-full font-semibold hover:bg-white hover:bg-opacity-10 transition-all duration-300">Contact
+                        Us</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact py-24 bg-gradient-to-br from-slate-800 to-slate-700 text-white">
+            <div class="container max-w-6xl mx-auto px-8">
+                <div class="contact-content grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="contact-text animate-on-scroll">
+                        <h2 class="text-4xl font-extrabold mb-6">Ready to Start Your Project?</h2>
+                        <p class="text-slate-300 mb-8 text-lg">Let's discuss how we can help transform your digital
+                            presence and achieve your business goals. We're here to turn your vision into reality.</p>
+                        <div class="hero-buttons flex gap-4">
+                            <a href="mailto:info@jaynex.com"
+                                class="btn-primary bg-gradient-to-br from-blue-500 to-blue-700 text-white py-4 px-8 rounded-full font-semibold no-underline inline-block transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">Email
+                                Us</a>
+                            <a href="tel:+1234567890"
+                                class="btn-secondary bg-transparent text-white py-4 px-8 border-2 border-slate-500 rounded-full font-semibold no-underline inline-block transition-all duration-300 hover:border-blue-500 hover:bg-blue-500/10">Call
+                                Now</a>
+                        </div>
+                    </div>
+                    <form
+                        id="contactForm" class="contact-form bg-white/10 backdrop-blur p-10 rounded-2xl border border-white/20 animate-on-scroll">
+                        <div class="form-group mb-6">
+                            <label for="name" class="block mb-2 font-semibold text-slate-200">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name"
+                                class="w-full p-4 border border-white/30 rounded-xl bg-white/10 text-white text-base transition-all duration-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-500/20"
+                                required>
+                        </div>
+                        <div class="form-group mb-6">
+                            <label for="email" class="block mb-2 font-semibold text-slate-200">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email"
+                                class="w-full p-4 border border-white/30 rounded-xl bg-white/10 text-white text-base transition-all duration-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-500/20"
+                                required>
+                        </div>
+                        <div class="form-group mb-6">
+                            <label for="service" class="block mb-2 font-semibold text-slate-200">Service Needed</label>
+                            <input type="text" id="service" name="service" placeholder="Web Development, UI/UX, etc."
+                                class="w-full p-4 border border-white/30 rounded-xl bg-white/10 text-white text-base transition-all duration-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-500/20"
+                                required>
+                        </div>
+                        <div class="form-group mb-6">
+                            <label for="message" class="block mb-2 font-semibold text-slate-200">Project Details</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."
+                                class="w-full p-4 border border-white/30 rounded-xl bg-white/10 text-white text-base transition-all duration-300 focus:border-blue-500 focus:ring-3 focus:ring-blue-500/20"
+                                required></textarea>
+                        </div>
+                        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="g-recaptcha" data-sitekey="6LdzVX4rAAAAAHMfb6L_HSgh1JHPhUfLd2yMhovx"></div><br>
+                        <button type="submit"
+                            class="btn-primary bg-gradient-to-br from-blue-500 to-blue-700 text-white py-4 px-8 rounded-full font-semibold no-underline w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">Send
+                            Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-slate-900 text-white">
+            <div class="max-w-6xl mx-auto px-8 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                    <div class="footer-col">
+                        <div class="logo text-3xl font-extrabold mb-4">JAYNEX IT</div>
+                        <p class="text-slate-400 mb-4">Your trusted partner for digital transformation and innovative
+                            software solutions.</p>
+                        <div class="social-links flex gap-4">
+                            <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-facebook">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-twitter">
+                                    <path
+                                        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-linkedin">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                    </path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-instagram">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3 class="text-lg font-semibold mb-4">Services</h3>
+                        <ul class="space-y-2">
+                            <li><a href="web-development.html"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">Web
+                                    Development</a></li>
+                            <li><a href="ui-ux.html"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">UI/UX
+                                    Design</a>
+                            </li>
+                            <li><a href="digital-media-managing.html"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">Digital Media
+                                    Managing</a></li>
+                            <li><a href="web-content-writing.html"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">Content
+                                    Writing</a></li>
+                            <li><a href="social-media-management.html"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">Social Media
+                                    Management</a></li>
+                            <li><a href="business-development.html"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">Business
+                                    Development</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3 class="text-lg font-semibold mb-4">Company</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#about"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">About Us</a>
+                            </li>
+                            <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-300">Our
+                                    Team</a></li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">Careers</a>
+                            </li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">Blog</a>
+                            </li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-white transition-colors duration-300">Testimonials</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                        <ul class="space-y-2">
+                            <li class="text-slate-400">123 Business Ave, Suite 456</li>
+                            <li class="text-slate-400">New York, NY 10001</li>
+                            <li class="text-slate-400">Phone: (123) 456-7890</li>
+                            <li class="text-slate-400">Email: info@jaynex.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
+                    <p>&copy; 2025 JAYNEX IT. All rights reserved. Crafting digital excellence since day one.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header background on scroll
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-white/98', 'shadow-md');
+                    header.classList.remove('bg-white/95');
+                } else {
+                    header.classList.remove('bg-white/98', 'shadow-md');
+                    header.classList.add('bg-white/95');
+                }
+            });
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Form submission
+            document.querySelector('.contact-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form data
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+
+                // Simulate form submission
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    alert('Thank you for your message! We\'ll get back to you soon.');
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            });
+
+            // Add some interactive hover effects
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+
+           // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('translate-x-0');
+            mobileNav.classList.toggle('translate-x-full');
+
+            // Animate hamburger to X
+            const spans = hamburger.querySelectorAll('span');
+            if (mobileNav.classList.contains('translate-x-0')) {
+                spans[0].style.transform = 'translateY(8px) rotate(45deg)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
+        });
+
+        // Mobile dropdown toggle
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const dropdown = btn.nextElementSibling;
+                dropdown.classList.toggle('hidden');
+
+                // Rotate the arrow
+                const arrow = btn.querySelector('span');
+                arrow.classList.toggle('rotate-180');
+            });
+        });
+
+        // Close mobile nav when clicking on links
+        document.querySelectorAll('.mobile-dropdown-list a, .mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.add('translate-x-full');
+                mobileNav.classList.remove('translate-x-0');
+
+                // Reset hamburger animation
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            });
+        });
+        </script>
+        <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      if (typeof grecaptcha === "undefined") {
+        alert("reCAPTCHA not loaded. Please refresh the page.");
+        return;
+      }
+
+      const captchaToken = grecaptcha.getResponse();
+      if (!captchaToken) {
+        alert("Please complete the CAPTCHA.");
+        return;
+      }
+
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        service: form.service.value,
+        message: form.message.value,
+        website: form.website.value,
+        captcha: captchaToken
+      };
+
+      try {
+        const response = await fetch("http://localhost:3000/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+
+        if (result.status === "success") {
+          form.reset();
+          grecaptcha.reset();
+        }
+      } catch (err) {
+        console.error("Form submission error:", err);
+        alert("Something went wrong: " + err.message);
+      }
+    });
+  });
+</script>
+<script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
